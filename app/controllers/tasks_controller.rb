@@ -1,15 +1,19 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
+    @task = Task.new
   end
   def show
     @task = Task.find(params[:id])
   end
   def new
-    @task = Task.new(task_params)
+    @task = Task.new
+  end
+  def edit
+    @task = Task.find(params[:id])
   end
   def create
-    @task = Task.find(params[:id])
+    @task = Task.new(task_params)
     if @task.save
       redirect_to tasks_path, notice: "Quote was successfully created."
     else
@@ -17,8 +21,9 @@ class TasksController < ApplicationController
     end
   end
   def update
-    if @quote.update(quote_params)
-      redirect_to quotes_path, notice: "Quote was successfully updated."
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: "Task was successfully updated."
     else
       render :edit
     end
@@ -30,6 +35,6 @@ class TasksController < ApplicationController
   end
   private
   def task_params
-    params.require(:quote).permit(:title, :description)
+    params.require(:task).permit(:title, :description, :importance)
   end
 end

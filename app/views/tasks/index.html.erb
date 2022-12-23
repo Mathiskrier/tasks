@@ -1,13 +1,27 @@
 <div class="body-container container-fluid">
+  <h1 class="font-bold text-2xl">Task Manager</h1>
+  <div class="header-container">
+    <%= render "form", task: @task %>
+    <%= notice %>
+  </div>
   <div class="index-container container-xl">
     <% @tasks.each do |task| %>
-      <ul>
-        <div class="task-container d-flex justify-content-between">
-          <li><%= task.title %></li>
-          <%= link_to "show", task_path(task) %>
+      <div class="task-container d-flex justify-content-between">
+        <turbo-frame id="<%= dom_id task %>" class="block">
+          <table>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td><%= task.title %></td>
+              <td><%= task.description %></td>
+            </tr>
+          </table>
+          <%= link_to "edit", edit_task_path(task) %>
           <%= link_to "delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-        </div>
-      </ul>
+        </turbo-frame>
+      </div>
     <% end %>
   </div>
 </div>
