@@ -1,2 +1,20 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+// this is the main container
+.body-container {
+  background-color: red;
+  height:100vh
+}
+// this is the container which holds the whole index section
+
+.index-container {
+  background-color: greenyellow;
+}
+
+//this the container for a single task
+
+.task-container {
+  background-color: white;
+}

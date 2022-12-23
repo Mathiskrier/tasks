@@ -1,0 +1,13 @@
+<div class="body-container container-fluid">
+  <div class="index-container container-xl">
+    <% @tasks.each do |task| %>
+      <ul>
+        <div class="task-container d-flex justify-content-between">
+          <li><%= task.title %></li>
+          <%= link_to "show", task_path(task) %>
+          <%= link_to "delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      </ul>
+    <% end %>
+  </div>
+</div>

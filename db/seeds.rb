@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+tasks = 10.times do |number|
+Task.create(title: "#{number += 1}th task", description: "task-description")
+end
+
+puts "seeded successfully"
