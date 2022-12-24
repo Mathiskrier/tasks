@@ -6,7 +6,13 @@
   </div>
   <div class="index-container container-xl">
     <% @tasks.each do |task| %>
-      <div class="task-container d-flex justify-content-between">
+      <div class="task-container d-flex justify-content-between" data-controller = "tasks-completed">
+        <%= form_with(model: task, class: "mb-7") do |form| %>
+            <%= form.check_box :completed, data: {
+                         id: task.id,
+                         action: "tasks-completed#toggle"
+                       } %>
+        <% end %>
         <turbo-frame id="<%= dom_id task %>" class="block">
           <table>
             <tr>
