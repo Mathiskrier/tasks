@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import TasksCompletedController from "./tasks_completed_controller"
+application.register("tasks-completed", TasksCompletedController)
