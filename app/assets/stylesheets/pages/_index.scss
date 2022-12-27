@@ -5,7 +5,6 @@
 // this is the main container
 .body-container {
   background-color: red;
-  height:100vh
 }
 // this is the container which holds the whole index section
 
@@ -17,4 +16,9 @@
 
 .task-container {
   background-color: white;
+  //width: 100%;
+}
+
+.turbo-frame-class {
+  width: 100%;
 }

@@ -1,0 +1,9 @@
+<%= form_with(model: task, class: "mb-7") do |form| %>
+  <div class="mb-5">
+    <%= form.text_field :title, placeholder: "title", class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+    <%= form.text_field :description, placeholder: "description", class: "inline-block w-96 px-3 py-2 mt-2 shadow rounded-md border border-gray-200 outline-none" %>
+    <%= form.label :importance, 'Important?' %>
+    <%= form.check_box :importance, {}, true %>
+    <%= form.submit "Update", class: "myButton py-2 ml-2 bg-blue-600 text-white" %>
+  </div>
+<% end %>

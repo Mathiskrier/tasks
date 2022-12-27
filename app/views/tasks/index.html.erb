@@ -1,19 +1,25 @@
 <div class="body-container container-fluid">
   <h1 class="font-bold text-2xl container-xl">Task Manager</h1>
-  <div class="header-container container-xl">
-    <%= render "form", task: @task %>
-    <%= notice %>
+
+  <div class="header-container container-xl" data-controller="add-task-toggle">
+    <button data-action="click->add-task-toggle#showForm" data-add-task-toggle-target = "addbutton">ADD Task</button>
+    <div data-add-task-toggle-target = "formfield">
+      <%= render "form", task: @task %>
+      <%= notice %>
+    </div>
   </div>
+
+  <!----here the toggle div for the task button ends-->
   <div class="index-container container-xl">
     <% @tasks.each do |task| %>
-      <div class="task-container d-flex justify-content-start align-items-center" data-controller = "tasks-completed">
+      <div class="task-container d-flex  align-items-center" data-controller = "tasks-completed">
         <%= form_with(model: task, class: "mb-7") do |form| %>
             <%= form.check_box :completed, data: {
                          id: task.id,
                          action: "tasks-completed#toggle"
                        } %>
         <% end %>
-        <turbo-frame id="<%= dom_id task %>" class="block">
+        <turbo-frame id="<%= dom_id task %>" class="d-flex align-items-center turbo-frame-class">
           <table>
             <tr>
               <th>Title</th>
@@ -24,8 +30,12 @@
               <td><%= task.description %></td>
             </tr>
           </table>
-          <%= link_to "edit", edit_task_path(task) %>
-          <%= link_to "delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%= link_to edit_task_path(task) do %>
+            <i class="fa-solid fa-pen"></i>
+          <% end %>
+          <%= link_to task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
         </turbo-frame>
       </div>
     <% end %>

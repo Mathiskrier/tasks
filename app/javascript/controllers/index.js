@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddTaskToggleController from "./add_task_toggle_controller"
+application.register("add-task-toggle", AddTaskToggleController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
