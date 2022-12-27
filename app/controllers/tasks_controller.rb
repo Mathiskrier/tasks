@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
+    #tasks are now sorted by the completed attribute, but nothing else
+    @tasks = @tasks.sort_by { |a| a.completed ? 1 : 0 }
     @task = Task.new
   end
   def show
