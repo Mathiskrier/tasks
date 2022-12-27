@@ -1,12 +1,12 @@
 <div class="body-container container-fluid">
-  <h1 class="font-bold text-2xl">Task Manager</h1>
-  <div class="header-container">
+  <h1 class="font-bold text-2xl container-xl">Task Manager</h1>
+  <div class="header-container container-xl">
     <%= render "form", task: @task %>
     <%= notice %>
   </div>
   <div class="index-container container-xl">
     <% @tasks.each do |task| %>
-      <div class="task-container d-flex justify-content-between" data-controller = "tasks-completed">
+      <div class="task-container d-flex justify-content-start align-items-center" data-controller = "tasks-completed">
         <%= form_with(model: task, class: "mb-7") do |form| %>
             <%= form.check_box :completed, data: {
                          id: task.id,
