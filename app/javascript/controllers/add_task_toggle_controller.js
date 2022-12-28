@@ -8,7 +8,13 @@ export default class extends Controller {
   }
   showForm() {
     console.log("you clicked me")
-    this.addbuttonTarget.innertText ="pij"
-    this.formfieldTarget
+    // if (this.addbuttonTarget.innerText == "+") {
+    //   this.addbuttonTarget.innerText = "-"
+    //   this.formfieldTarget.style.display = "none"
+
+    // } else {
+    //   this.addbuttonTarget.innerText = "+"
+    //   this.formfieldTarget.style.display = "block"
+    // }
   }
 }
