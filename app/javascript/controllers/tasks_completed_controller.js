@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     console.log('Connected to checkbox')
-
   }
   toggle(e) {
     const id = e.target.dataset.id
@@ -25,7 +24,5 @@ export default class extends Controller {
       .then(data => {
          alert(data.message)
        })
-
-
   }
 }

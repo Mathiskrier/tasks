@@ -28,7 +28,6 @@ class TasksController < ApplicationController
     end
   end
   def update
-    raise
     @task = Task.find(params[:id])
     if @task.update(task_params)
       redirect_to tasks_path, notice: "Task was successfully updated."

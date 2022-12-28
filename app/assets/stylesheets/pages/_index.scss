@@ -5,16 +5,27 @@
 // this is the main container
 .body-container {
   background-color: red;
-  height:100vh
 }
 // this is the container which holds the whole index section
 
 .index-container {
-  background-color: greenyellow;
+  //background-color: greenyellow;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid grey
 }
 
 //this the container for a single task
 
 .task-container {
   background-color: white;
+  //width: 100%;
+}
+
+.turbo-frame-class {
+  width: 100%;
+}
+
+.completed-class {
+  opacity: 0.5;
 }
